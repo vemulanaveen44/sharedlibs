@@ -7,9 +7,12 @@ pipeline{
     stages{
         stage('Demo'){
             steps{
-                welcome.jenkisfile{}
+                script{
+                    welcome.jenkisfile{}
             }
+                    
+                }
+                
         }
     }
 }
-
