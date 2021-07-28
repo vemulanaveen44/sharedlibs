@@ -1,16 +1,15 @@
 @Library('javahome-demo') _
 
-welcome {}
 
-/*
+
 pipeline{
     agent any
     stages{
         stage('Demo'){
             steps{
-                welcome("naveen vemula")
+                welcome.jennkinsfile
             }
         }
     }
 }
-*/
+
