@@ -1,5 +1,8 @@
 @Library('javahome-demo') _
 
+welcome {}
+
+/*
 pipeline{
     agent any
     stages{
@@ -10,3 +13,4 @@ pipeline{
         }
     }
 }
+*/
