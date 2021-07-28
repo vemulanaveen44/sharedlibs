@@ -3,8 +3,8 @@ def call(name){
  echo "Hey ${name}, How are you ?"
 }
 */
-def call(jenkinsfile = [:]) {
-pipeline {
+def call(jenkinsfile = [:]){
+    pipeline {
     agent any
     tools {
         terraform 'terraform'
@@ -51,4 +51,5 @@ pipeline {
         
     }
 }
+    
 }
