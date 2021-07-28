@@ -3,11 +3,10 @@ def call(name){
  echo "Hey ${name}, How are you ?"
 }
 */
-def call(jenkinsfile = [:]){
+def call(jenkinsfile){
     pipeline {
-    agent any
-    tools {
-        terraform 'terraform'
+        agent any
+    
     }
     stages {
         stage('git checkout'){
@@ -16,40 +15,14 @@ def call(jenkinsfile = [:]){
             }
         }
         stage('init'){
-            steps {
-                ansiColor('xterm') {
-                     sh 'terraform init'
+            setps {
+                ansiColor('xterm'){
+                    sh 'terraform init'
+                    
                 }
                 
             }
         }
-        stage('plan') {
-            steps {
-                ansiColor('xterm') {
-            
-                    sh 'terraform plan'
-                }
-                
-           }
-        }
-        stage('Approval') {
-      steps {
-        script {
-          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
-        }
-      }
     }
-        
-        stage('apply') {
-            steps {
-                ansiColor('xterm') {
-                    sh 'terraform apply -auto-approve'
-                }
-                
-            }
-        }
-        
-    }
-}
     
 }
